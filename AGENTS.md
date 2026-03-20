@@ -1,4 +1,46 @@
-# Repository Guidelines
+# CQLensClaw 项目核心原则
+
+> 本项目是基于 OpenClaw 构建的企业级 Agent Runtime 通用底座
+
+## 关键原则：不是套壳，而是深度改造
+
+**重要**：我们不是简单地在 OpenClaw 外面"套一层"，而是：
+
+1. **Fork 模式** - 维护 OpenClaw 的安全加固分支
+2. **必须修复 OpenClaw 底层的安全漏洞和架构问题**
+3. **不能交付给企业一个存在隐患和漏洞的版本**
+
+## OpenClaw 已知问题清单（待修复）
+
+| 问题 | 严重程度 | 状态 |
+|-----|---------|------|
+| ClawJacked 漏洞 (Gateway 认证) | 高危 | 待分析 |
+| 明文凭证存储 | 高危 | 待分析 |
+| Prompt 注入防护不足 | 中危 | 待分析 |
+
+> 在正式交付前，以上问题必须全部解决。
+
+## 分层处理策略
+
+| 问题类型 | 处理位置 |
+|---------|---------|
+| 权限控制、审计日志、成本控制 | `packages/` 扩展层 |
+| 底层安全漏洞、认证缺陷、凭证存储 | 修改 OpenClaw 源码 |
+
+## 项目文档
+
+- `docs/plans/2026-03-20-technical-solution.md` - 完整技术方案
+- `docs/plans/2026-03-20-enterprise-agent-runtime-design.md` - 架构设计
+- `docs/plans/directory-structure-guide.md` - 目录结构说明
+
+## 仓库信息
+
+- **GitHub**: https://github.com/cpengfei147/cqlensclaw
+- **Fork 来源**: openclaw/openclaw
+
+---
+
+# Repository Guidelines (OpenClaw 原有规范)
 
 - Repo: https://github.com/openclaw/openclaw
 - In chat replies, file references must be repo-root relative only (example: `extensions/bluebubbles/src/channel.ts:80`); never absolute paths or `~/...`.
